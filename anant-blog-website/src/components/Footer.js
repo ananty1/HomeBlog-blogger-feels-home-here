@@ -7,7 +7,7 @@ const Footer = () => (
   <Box component="footer" sx={{ py: 3, px: 2, mt: 'auto', backgroundColor: '#010101', color: 'white' }}>
     <Typography variant="h6" align="center">HomeBlog - the home of bloggers</Typography>
     <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-      <IconButton color="inherit" href="https://www.linkedin.com/in/anant-yadav">
+      <IconButton color="inherit" href="https://www.linkedin.com/in/anant-yadav-441807244/">
         <LinkedIn />
       </IconButton>
       <IconButton color="inherit" href="mailto:y2anant@gmail.com">
