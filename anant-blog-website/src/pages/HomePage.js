@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 import CloudinaryImage from './CloudinaryImage';
+import SampleBlog from '../components/SampleBlog';
 
 const HomePage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -16,6 +17,7 @@ const HomePage = () => {
         const blog = response.data.blogs;
         setBlogs(blog);
       } catch (error) {
+        setBlogs(SampleBlog);
         console.error('Failed to fetch blogs:', error);
       }
     };
