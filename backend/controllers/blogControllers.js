@@ -28,6 +28,8 @@ exports.getBlogById = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     if (!blog) return res.status(404).json({ msg: 'Blog not found' });
+    blog.viewCount  = blog.viewCount+1;
+    await blog.save();
     res.json(blog);
   } catch (err) {
     console.error(err.message);

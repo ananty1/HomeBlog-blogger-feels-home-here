@@ -4,9 +4,10 @@ const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
   content: { type: String, required: true },
-  public_id: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
-});
+  viewCount: { type: Number, default: 1 },
+  public_id: { type: String, required: true }
+}, { timestamps: true });
+
 
 const Blog = mongoose.model('Blog', blogSchema);
 module.exports = Blog;

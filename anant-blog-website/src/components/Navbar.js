@@ -9,22 +9,25 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { Home, Login, PersonAdd,ExitToApp, AccountCircle } from '@mui/icons-material';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useNavigate } from 'react-router-dom';
-
+import blogHome from '../assets/blogHome.png';
 
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const authToken = localStorage.getItem("auth-token");
+  const authToken = localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE);
   const navigate = useNavigate();
+  
 
   
   const menuItems = [
-    { label: 'HomeBlog', icon: <Home />, path: '/' ,authRequired:true},
-    { label: 'Login', icon: <Login />, path: '/login', authRequired: !authToken },
-    { label: 'Signup', icon: <PersonAdd />, path: '/signup', authRequired: !authToken },
-    { label: 'Profile', icon: <AccountCircle />, path: '/profile', authRequired: authToken },
-    { label: 'Logout', icon: <ExitToApp />, path: '/logout', authRequired: authToken }
+    { label: 'HomeBlog', icon: <img src={blogHome} alt='blogHome' style={{width:"30px",height:"30px"}}/>, path: '/' ,authRequired:true},
+    { label: 'Login', icon: <Login color='info'/>, path: '/login', authRequired: !authToken },
+    { label: 'Signup', icon: <PersonAdd color='success'/>, path: '/signup', authRequired: !authToken },
+    { label: 'Profile', icon: <AccountCircle color='info'/>, path: '/profile' , authRequired: authToken },
+    { label: 'Add Blog', icon: <AddCircleOutlineIcon color='info'/>, path: '/create-blog', authRequired: authToken },
+    { label: 'Logout', icon: <ExitToApp color='error'/>, path: '/logout', authRequired: authToken }
   ];
 
   const handleCloseDrawer = (path) => {
@@ -34,14 +37,17 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{background:"#fff",color:"black"}}>
+      <AppBar position="sticky" sx={{background:"#fff",color:"black"}}>
         <Toolbar>
           <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" onClick={() => navigate('/')}>
+          <Typography variant="h5" onClick={() => navigate('/')} sx={{cursor:"pointer",marginLeft:"0.2em"}}>
+          
+        <img src={blogHome} alt='blogHome' style={{width:"22px",height:"22px"}}/>
             HomeBlog
           </Typography>
+          
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>

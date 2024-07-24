@@ -12,20 +12,23 @@ const SignupPage = () => {
   const [phoneNumber, setphoneNumber] = useState('');
   const navigate = useNavigate();
 
-  const handleSignup = async () => {
+  const handleSignup = async (e) => {
+    e.preventDefault();
     try {
+      console.log(name,email,password,phoneNumber);
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, { 
         name, 
         email, 
         password, 
         phoneNumber 
+      }).then((response)=>{
+        
+        toast.success(response.data.message);
+        navigate('/login');
       });
-
-      if (response.status === 201) {
-        toast.success('Signup successful');
-        navigate('/');
-      }
+      
     } catch (error) {
+      console.log(error);
       if (error.response && error.response.status === 400) {
         toast.error('Email  already exists');
       } else {
@@ -35,16 +38,32 @@ const SignupPage = () => {
   };
 
   return (
-    <Container className="signup-container">
-      <Box className="signup-box">
-        <Typography variant="h4" align="center">Signup to HomeBlog Now</Typography>
-        <TextField label="Name" type="name" fullWidth margin="normal" value={name} onChange={(e) => setName(e.target.value)} required />
-        <TextField label="Email" fullWidth margin="normal" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-        <TextField label="Password" type="password" fullWidth margin="normal" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-        <TextField label="phoneNumber" type="phone" fullWidth margin="normal" value={phoneNumber} onChange={(e) => setphoneNumber(e.target.value)} required/>
-        <Button variant="contained" color="primary" onClick={handleSignup}>Signup</Button>
-      </Box>
-    </Container>
+    
+    <div className='SignupPage'>
+      <div className='Signup-section'>
+        <h2>Signup to HomeBlog</h2>
+        <form className='form' onSubmit={handleSignup}>
+          <label htmlFor='name' className='form-section'> Name </label>
+            <input type='name' name='email' value={name} onChange={(e) => setName(e.target.value)} required/>
+          <label htmlFor='email' className='form-section'> Email </label>
+            <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          <label htmlFor='password' className='form-section'>Password</label>
+            <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
+          
+          <label htmlFor='phoneNumber' className='form-section'> Phone Number </label>
+            <input type='phone' name='email' value={phoneNumber} onChange={(e) => setphoneNumber(e.target.value)} required/>
+          
+          <button type='submit' className='submit' >Signup</button>
+        <div className='form-section'>
+          Already have an account? <a href='/login'>Login</a> Now
+        </div>
+        </form>
+        
+
+      </div>
+
+    </div>
+    
   );
 };
 

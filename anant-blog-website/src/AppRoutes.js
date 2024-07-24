@@ -4,7 +4,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 
 
@@ -17,19 +18,24 @@ const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
 const LogOutPage = lazy(() => import('./pages/LogOutPage'));
 
 const AppRoutes = () => (
-  
+
   <Router>
     <Navbar />
     <ToastContainer />
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/create-blog" element={<CreateBlogPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+
+        <Route path="*" element={<HomePage />} />
+        <Route element={<PublicRoute />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+        </Route>
         <Route path="/blog/:id" element={<BlogDetailPage />} />
-        <Route path="/logout" element={<LogOutPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/create-blog" element={<CreateBlogPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/logout" element={<LogOutPage />} />
+        </Route>
       </Routes>
     </Suspense>
     <Footer />

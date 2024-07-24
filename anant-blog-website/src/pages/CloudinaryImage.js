@@ -19,8 +19,8 @@ const CloudinaryImage = ({public_id}) => {
       cldImg={img} 
       style={{ 
         position: 'absolute', 
-        top: 0, 
-        left: 0, 
+        top: 2, 
+        left: 2, 
         width: '100%', 
         height: '100%' 
       }} 
