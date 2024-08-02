@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-
+import SkeletonBlogPage from './components/BlogSkeleton/SkeletonBlogPage';
 
 
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -22,7 +22,7 @@ const AppRoutes = () => (
   <Router>
     <Navbar />
     <ToastContainer />
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<SkeletonBlogPage/> }>
       <Routes>
 
         <Route path="*" element={<HomePage />} />
