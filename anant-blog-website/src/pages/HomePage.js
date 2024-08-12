@@ -30,7 +30,21 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Container sx={{mt:'2rem',mb:'2rem'}}>
+    
+    
+    <Container sx={{mb:'2rem'}}>
+    <div className='title-introducer'>
+      <h4>HomeBlog</h4>
+      {/* <p> The Home Of Bloggers</p> */}
+      
+    </div>
+
+    <div className='about-blogger'>
+    <p>
+      HomeBlog offers you to <strong>create your own blog </strong> ,and view your blog on our plateform based on view count, you can now create your own account and sign in and <strong>see your profile</strong>.
+
+    </p>
+    </div>
       <Typography variant='h3' gutterBottom>Our Top Blogs</Typography>
       <Grid container spacing={3}>
         {loading ? (
@@ -55,6 +69,7 @@ const HomePage = () => {
         )}
       </Grid>
     </Container>
+    
   );
 };
 
