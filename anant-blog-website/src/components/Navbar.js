@@ -42,10 +42,10 @@ const Navbar = () => {
           <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5" onClick={() => navigate('/')} sx={{cursor:"pointer",marginLeft:"0.2em"}}>
+          <Typography variant="h5" onClick={() => navigate('/')} sx={{cursor:"pointer",marginLeft:"0.2em",fontWeight: 700}}>
           
         <img src={blogHome} alt='blogHome' style={{width:"22px",height:"22px"}}/>
-            HomeBlog
+        HomeBlog
           </Typography>
           
         </Toolbar>

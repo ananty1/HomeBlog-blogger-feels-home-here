@@ -24,6 +24,7 @@ const AppRoutes = () => (
     <ToastContainer />
     <Suspense fallback={<SkeletonBlogPage/> }>
       <Routes>
+        
 
         <Route path="*" element={<HomePage />} />
         <Route element={<PublicRoute />}>

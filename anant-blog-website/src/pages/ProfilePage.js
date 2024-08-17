@@ -37,7 +37,10 @@ const ProfilePage = () => {
   return (
     <div className='profile-page'>
       <div className='profile-page-container'>
-        <h1>Profile Page</h1>
+        <h1>Your Profile</h1>
+        <p>
+        Manage your personal information and view your published blogs through your profile page. Stay connected with the HomeBlog community and update your details as needed. Building your blog presence starts here!
+        </p>
         <div className='profile-section'>
           <div className='avatar'>
             <img src={avatar} alt='img' />
