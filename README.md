@@ -13,11 +13,24 @@ HomeBlog is a full-stack blog platform built using the MERN (MongoDB, Express.js
 
 ## Technologies Used
 
-- **Frontend:** React.js, Material-UI, React Router DOM
-- **Backend:** Node.js, Express.js, MongoDB Atlas
-- **Authentication:** JSON Web Tokens (JWT)
-- **Rich Text Editor:** Quill
-- **Image Storage:** Cloudinary
+- **Frontend:**
+  ![React.js](https://img.shields.io/badge/React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+  ![Material-UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=mui&logoColor=white)
+  ![React Router](https://img.shields.io/badge/React%20Router-D02C36?style=for-the-badge&logo=react-router&logoColor=white)
+
+- **Backend:**
+  ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+  ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+  ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+
+- **Authentication:**
+  ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
+
+- **Rich Text Editor:**
+  ![Quill](https://img.shields.io/badge/Quill-2B2D2F?style=for-the-badge&logo=quill&logoColor=white)
+
+- **Image Storage:**
+  ![Cloudinary](https://img.shields.io/badge/Cloudinary-4285F4?style=for-the-badge&logo=cloudinary&logoColor=white)
 
 
 
